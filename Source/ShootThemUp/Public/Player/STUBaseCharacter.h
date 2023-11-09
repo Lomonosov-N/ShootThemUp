@@ -10,6 +10,8 @@
 
 class UCameraComponent;
 class USpringArmComponent;
+class USTUHealthComponent;
+class UTextRenderComponent;
 
 UCLASS()
 class SHOOTTHEMUP_API ASTUBaseCharacter : public ACharacter
@@ -27,7 +29,13 @@ protected:
         USpringArmComponent * SpringArmComponent;
         
         UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
-        UCameraComponent * CameraComponent; 
+        UCameraComponent * CameraComponent;
+
+        UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
+        USTUHealthComponent * HealthComponent;
+
+        UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
+        UTextRenderComponent * HealthTextComponent;
 
 public:	
 	// Called every frame
