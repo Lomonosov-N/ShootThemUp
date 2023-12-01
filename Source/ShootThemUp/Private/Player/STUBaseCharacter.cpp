@@ -64,6 +64,8 @@ void ASTUBaseCharacter::Tick(float DeltaTime)
 void ASTUBaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+        check(PlayerInputComponent);
+        
         PlayerInputComponent->BindAxis("MoveForward", this, &ASTUBaseCharacter::MoveForward);
         PlayerInputComponent->BindAxis("MoveRight", this, &ASTUBaseCharacter::MoveRight);
         PlayerInputComponent->BindAxis("LookUp", this, &ASTUBaseCharacter::AddControllerPitchInput);
@@ -132,13 +134,13 @@ void ASTUBaseCharacter::OnDeath()
 
 void ASTUBaseCharacter::OnGroundLanded(const FHitResult& Hit)
 {
+        //const auto FallVelocityZ = -GetVelocity().Z;
         const auto FallVelocityZ = GetCharacterMovement()->Velocity.Z;
-        UE_LOG(BaseCharacterLog, Display, TEXT("On landed: %f"), FallVelocityZ);
-
         if(-FallVelocityZ < LandedDamageVelocity.X) return;
 
-        const auto FinalDamage = FMath::GetMappedRangeValueClamped(LandedDamageVelocity, LandedDamage, FallVelocityZ);
-        UE_LOG(BaseCharacterLog, Display, TEXT("FinalDamage: %f"), FinalDamage);
-        TakeDamage(FinalDamage, FDamageEvent{}, nullptr, nullptr);
+        const auto FallDamage = FMath::GetMappedRangeValueClamped(LandedDamageVelocity, LandedDamage, FallVelocityZ);
+        TakeDamage(FallDamage, FDamageEvent{}, nullptr, nullptr);
+
+        UE_LOG(BaseCharacterLog, Display, TEXT("FallDamage: %f"), *GetName(), FallDamage);
         
 }
