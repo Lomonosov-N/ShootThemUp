@@ -19,10 +19,11 @@ public class ShootThemUp : ModuleRules
 		
 		PublicIncludePaths.AddRange(new string[]
 		{
-			"ShootThemUp/Player",
-			"ShootThemUp/Components",
-			"ShootThemUp/Dev",
-			"ShootThemUp/Weapon"
+			"ShootThemUp/Public/Player",
+			"ShootThemUp/Public/Components",
+			"ShootThemUp/Public/Dev",
+			"ShootThemUp/Public/Weapon",
+			"ShootThemUp/Public/UI"
 		});
 		// Uncomment if you are using online features
 		// PrivateDependencyModuleNames.Add("OnlineSubsystem");
