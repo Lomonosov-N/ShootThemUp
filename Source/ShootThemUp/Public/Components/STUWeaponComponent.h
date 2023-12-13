@@ -17,7 +17,8 @@ public:
 	
 	USTUWeaponComponent();
 
-        void Fire();
+        void StartFire();
+        void StopFire();
 
 protected:
         
