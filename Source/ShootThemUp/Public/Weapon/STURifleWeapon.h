@@ -18,13 +18,13 @@ public:
         virtual void StopFire() override;
 
 protected:
-        UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+        UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category= "Weapon")
         float TimerBetweenShots = 0.1f;
 
-        UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+        UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category= "Weapon")
         float BulletSpread = 1.5f;
 
-        UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+        UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category= "Weapon")
         float DamageAmount = 10.0f;
         
         virtual void MakeShot() override;
